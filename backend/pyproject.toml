@@ -24,6 +24,9 @@ packages = [
 [tool.poetry.scripts]
 backend = "src.main:main"
 
+[tool.poetry.dependencies]
+pymodbus = "^3.8.6"
+
 [tool.poetry.group.dev.dependencies]
 black = "^25.1.0"
 mypy = "^1.15.0"

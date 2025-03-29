@@ -371,6 +371,26 @@ pyyaml = ">=5.1"
 virtualenv = ">=20.10.0"
 
 [[package]]
+name = "pymodbus"
+version = "3.8.6"
+description = "A fully featured modbus protocol stack in python"
+optional = false
+python-versions = ">=3.9.0"
+groups = ["main"]
+files = [
+    {file = "pymodbus-3.8.6-py3-none-any.whl", hash = "sha256:b82373295fb98c9a9bf9338235240a8b2e97bcc49c0d833168cade7ba2fa90e6"},
+    {file = "pymodbus-3.8.6.tar.gz", hash = "sha256:7689b56cc3ad05a594e1486e772abb9d9646c01737935df492db04455680baf6"},
+]
+
+[package.extras]
+all = ["pymodbus[development,documentation,repl,serial,simulator]"]
+development = ["build (>=1.2.2)", "codespell (>=2.3.0)", "coverage (>=7.6.1)", "mypy (>=1.11.2)", "pylint (>=3.3.0)", "pytest (>=8.3.3)", "pytest-aiohttp (>=1.0.5)", "pytest-asyncio (>=0.24.0)", "pytest-cov (>=5.0.0)", "pytest-profiling (>=1.7.0) ; python_version < \"3.13\"", "pytest-timeout (>=2.3.1)", "pytest-xdist (>=3.6.1)", "ruff (>=0.8.2)", "twine (>=5.1.1)", "types-Pygments", "types-pyserial"]
+documentation = ["Sphinx (>=7.3.7)", "recommonmark (>=0.7.1)", "sphinx-rtd-theme (>=2.0.0)"]
+repl = ["pymodbus-repl (>=2.0.4)"]
+serial = ["pyserial (>=3.5)"]
+simulator = ["aiohttp (>=3.10.6) ; python_version >= \"3.12\"", "aiohttp (>=3.8.6) ; python_version < \"3.12\""]
+
+[[package]]
 name = "pytest"
 version = "8.3.5"
 description = "pytest: simple powerful testing with Python"
@@ -509,4 +529,4 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13"
-content-hash = "17001f2ee4869c55a827dc06fe61bbfcdfa2636183b1c2d697e9537c0a1a3124"
+content-hash = "a9ec8fb404f4f007e6d86ef65b729c6d8202f874b3dd29b785b34a985120c36a"

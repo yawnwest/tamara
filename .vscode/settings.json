@@ -10,5 +10,8 @@
         "backend/tests"
     ],
     "python.testing.pytestEnabled": true,
-    "python.testing.unittestEnabled": false
+    "python.testing.unittestEnabled": false,
+    "python.analysis.extraPaths": [
+        "./backend/src"
+    ]
 }
