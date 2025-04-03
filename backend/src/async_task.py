@@ -2,7 +2,7 @@ from src.async_task_interface import AsyncTaskInterface
 
 
 class AsyncTask(AsyncTaskInterface):
-    def _initialize(self):
+    def _initialize(self) -> None:
         print("Initialize AsyncTask")
         self._i = 0
 

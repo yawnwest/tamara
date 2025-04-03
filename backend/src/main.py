@@ -1,12 +1,14 @@
 import asyncio
 import signal
+from types import FrameType
+from typing import Optional
 
 from src.async_task import AsyncTask
 
-task = None
+task: Optional[AsyncTask] = None
 
 
-def signal_handler(sig, frame):
+def signal_handler(sig: int, frame: Optional[FrameType]) -> None:
     print("You pressed Ctrl+C!")
 
 
@@ -21,13 +23,13 @@ async def main() -> None:
     print("Exiting...")
 
 
-async def updating_task():
+async def updating_task() -> None:
     while True:
         await asyncio.sleep(2)
         print("hello")
 
 
-async def input_handler():
+async def input_handler() -> None:
     while True:
         user_input = await asyncio.to_thread(input, "Type 'x' to stop: ")
         if user_input.strip().lower() == "x":

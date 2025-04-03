@@ -1,10 +1,11 @@
 import asyncio
+from typing import Optional
 
 
 class AsyncTaskInterface:
     def __init__(self, sleepPeriod: float = 0.000000001) -> None:
         print("Initializing AsyncTask")
-        self._task: asyncio.Task[None] = None
+        self._task: Optional[asyncio.Task[None]] = None
         self._sleepPeriod = sleepPeriod
         self._initialize()
 
@@ -39,7 +40,7 @@ class AsyncTaskInterface:
             await asyncio.sleep(self._sleepPeriod)
             self._update()
 
-    def _initialize(self):
+    def _initialize(self) -> None:
         pass
 
     def _update(self) -> None:
