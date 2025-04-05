@@ -18,5 +18,5 @@ class WebsocketTask(AsyncTaskInterface):
 
     async def _update(self) -> None:
         print(self._i)
-        await self._manager.send_message(f"Message {self._i}")
+        await self._manager.send_message(f"{self._i}")
         self._i = self._i + 1

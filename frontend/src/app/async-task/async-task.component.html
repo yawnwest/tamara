@@ -1,0 +1,14 @@
+<button mat-raised-button color="primary" (click)="startAsyncTask()">
+  Start
+</button>
+<button mat-raised-button color="primary" (click)="stopAsyncTask()">
+  Stop
+</button>
+<button mat-raised-button color="primary" (click)="pauseAsyncTask()">
+  Pause
+</button>
+<button mat-raised-button color="primary" (click)="restartAsyncTask()">
+  Restart
+</button>
+
+<p>{{ apiService.value() }}</p>

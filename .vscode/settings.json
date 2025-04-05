@@ -5,7 +5,8 @@
         "**/.mypy_cache": true,
         "**/.pytest_cache": true,
         "**/.ruff_cache": true,
-        "**/.venv": true
+        "**/.venv": true,
+        "**/node_modules": true,
     },
     "python.testing.pytestArgs": [
         "backend/tests"
