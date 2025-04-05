@@ -26,6 +26,8 @@ backend = "src.main:main"
 
 [tool.poetry.dependencies]
 pymodbus = "^3.8.6"
+fastapi = "^0.115.12"
+uvicorn = "^0.34.0"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.15.0"

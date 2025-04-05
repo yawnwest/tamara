@@ -1,55 +1,39 @@
-import asyncio
-import tkinter as tk
+import uvicorn
+from fastapi import FastAPI
 
 from src.async_task import AsyncTask
 
+app = FastAPI()
 task: AsyncTask | None = None
 
 
-async def main() -> None:
-    root = tk.Tk()
-    root.title("Simple UI")
-
-    button1 = tk.Button(
-        root, text="Start Task", command=lambda: asyncio.create_task(start())
-    )
-    button1.pack(pady=10)
-
-    button2 = tk.Button(
-        root, text="Stop Task", command=lambda: asyncio.create_task(stop())
-    )
-    button2.pack(pady=10)
-
-    button3 = tk.Button(
-        root, text="Pause Task", command=lambda: asyncio.create_task(pause())
-    )
-    button3.pack(pady=10)
-
-    button4 = tk.Button(
-        root, text="Restart Task", command=lambda: asyncio.create_task(restart())
-    )
-    button4.pack(pady=10)
-
-    await run_tkinter_with_asyncio(root)
+@app.get("/")
+async def root():
+    return {"message": "Hello, World!"}
 
 
-async def start() -> None:
+@app.post("/start")
+async def start():
     global task
     if task is None:
         task = AsyncTask("my_task", 1, True)
     else:
         task.start()
+    return "start"
 
 
-async def stop() -> None:
+@app.post("/stop")
+async def stop():
     global task
     if task is None:
-        return
+        return None
 
     await task.stop()
     task = None
+    return "stop"
 
 
+@app.post("/pause")
 async def pause() -> None:
     global task
     if task is None:
@@ -58,6 +42,7 @@ async def pause() -> None:
     await task.pause()
 
 
+@app.post("/restart")
 async def restart() -> None:
     global task
     if task is None:
@@ -66,11 +51,5 @@ async def restart() -> None:
     await task.restart()
 
 
-async def run_tkinter_with_asyncio(root: tk.Tk) -> None:
-    while True:
-        root.update()
-        await asyncio.sleep(0.01)
-
-
 if __name__ == "__main__":
-    asyncio.run(main())
+    uvicorn.run("src.main:app", host="127.0.0.1", port=8000, reload=True, workers=2)
