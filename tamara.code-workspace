@@ -1,14 +1,25 @@
 {
-	"folders": [
-		{
-			"path": "."
-		},
-		{
-			"path": "backend"
-		},
-		{
-			"path": "frontend"
-		}
-	],
-	"settings": {}
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "backend"
+    },
+    {
+      "path": "frontend"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/.angular": true,
+      "**/.coverage": true,
+      "**/.mypy_cache": true,
+      "**/.pytest_cache": true,
+      "**/.ruff_cache": true,
+      "**/.venv": true,
+      "**/node_modules": true
+    }
+  }
 }
