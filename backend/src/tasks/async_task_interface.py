@@ -48,5 +48,5 @@ class AsyncTaskInterface:
     def _initialize(self) -> None:
         pass
 
-    def _update(self) -> None:
+    async def _update(self) -> None:
         pass

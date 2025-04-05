@@ -1,5 +1,5 @@
-from src.async_task_interface import AsyncTaskInterface
-from src.connection_manager import ConnectionManager
+from src.api.connection_manager import ConnectionManager
+from src.tasks.async_task_interface import AsyncTaskInterface
 
 
 class WebsocketTask(AsyncTaskInterface):

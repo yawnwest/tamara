@@ -1,2 +1,5 @@
+from src.main import add
+
+
 def test_hello() -> None:
-    assert True
+    assert add(1, 2) == 3
