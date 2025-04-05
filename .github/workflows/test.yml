@@ -82,5 +82,5 @@ jobs:
       - name: Install dependencies
         run: poetry install --no-interaction --with dev
 
-      - name: Check Black formatting
-        run: poetry run black --check .
+      - name: Check Ruff formatting
+        run: poetry run ruff check src tests

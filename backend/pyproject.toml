@@ -28,16 +28,14 @@ backend = "src.main:main"
 pymodbus = "^3.8.6"
 
 [tool.poetry.group.dev.dependencies]
-black = "^25.1.0"
 mypy = "^1.15.0"
 pre-commit = "^4.2.0"
 pytest = "^8.3.5"
 pytest-cov = "^6.0.0"
+ruff = "^0.11.4"
 
-[tool.black]
-line-length = 88
-target-version = ["py313"]
-include = '\.pyi?$'
+[tool.ruff]
+target-version = "py313"
 
 [tool.mypy]
 python_version = "3.13"
