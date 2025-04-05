@@ -30,6 +30,7 @@ class AsyncTaskInterface:
 
     async def _cancel(self) -> None:
         if self._is_running():
+            assert self._task is not None  # for mypy
             self._task.cancel()
             try:
                 await self._task
