@@ -1,10 +1,9 @@
 import asyncio
 import tkinter as tk
-from typing import Optional
 
 from src.async_task import AsyncTask
 
-task: Optional[AsyncTask] = None
+task: AsyncTask | None = None
 
 
 async def main() -> None:

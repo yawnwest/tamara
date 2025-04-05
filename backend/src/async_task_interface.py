@@ -1,5 +1,4 @@
 import asyncio
-from typing import Optional
 
 
 class AsyncTaskInterface:
@@ -7,7 +6,7 @@ class AsyncTaskInterface:
         self, name: str, sleep_period: float = 0.01, start: bool = False
     ) -> None:
         self.name = name
-        self._task: Optional[asyncio.Task[None]] = None
+        self._task: asyncio.Task[None] | None = None
         self._sleep_period = sleep_period
         self._initialize()
         if start:
