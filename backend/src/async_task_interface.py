@@ -39,7 +39,7 @@ class AsyncTaskInterface:
 
     async def _run(self) -> None:
         while True:
-            self._update()
+            await self._update()
             await asyncio.sleep(self._sleep_period)
 
     def _is_running(self) -> bool:
