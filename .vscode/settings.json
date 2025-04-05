@@ -1,19 +1,12 @@
 {
-    "files.exclude": {
-        "**/__pycache__": true,
-        "**/.coverage": true,
-        "**/.mypy_cache": true,
-        "**/.pytest_cache": true,
-        "**/.ruff_cache": true,
-        "**/.venv": true,
-        "**/node_modules": true,
-    },
-    "python.testing.pytestArgs": [
-        "backend/tests"
-    ],
-    "python.testing.pytestEnabled": true,
-    "python.testing.unittestEnabled": false,
-    "python.analysis.extraPaths": [
-        "./backend/src"
-    ]
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.angular": true,
+    "**/.coverage": true,
+    "**/.mypy_cache": true,
+    "**/.pytest_cache": true,
+    "**/.ruff_cache": true,
+    "**/.venv": true,
+    "**/node_modules": true
+  }
 }

@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "backend",
+            "name": "run backend",
             "type": "debugpy",
             "request": "launch",
             "module": "src.main",
