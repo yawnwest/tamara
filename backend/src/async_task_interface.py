@@ -3,42 +3,47 @@ from typing import Optional
 
 
 class AsyncTaskInterface:
-    def __init__(self, sleepPeriod: float = 0.000000001) -> None:
-        print("Initializing AsyncTask")
+    def __init__(
+        self, name: str, sleep_period: float = 0.01, start: bool = False
+    ) -> None:
+        self.name = name
         self._task: Optional[asyncio.Task[None]] = None
-        self._sleepPeriod = sleepPeriod
+        self._sleep_period = sleep_period
         self._initialize()
+        if start:
+            self.start()
 
     def start(self) -> None:
-        if self._task is None or self._task.done():
-            print("Start AsyncTask")
+        if not self._is_running():
             self._task = asyncio.create_task(self._run())
 
     async def stop(self) -> None:
-        if self._task is not None and not self._task.done():
-            print("Stop AsyncTask")
-            self._task.cancel()
-            try:
-                await self._task
-            except asyncio.CancelledError:
-                print("Task cancelled.")
-            self._task = None
+        await self._cancel()
+        self._initialize()
+
+    async def pause(self) -> None:
+        await self._cancel()
 
     async def restart(self) -> None:
-        if self._task is not None and not self._task.done():
-            print("Restart AsyncTask")
+        await self.stop()
+        self.start()
+
+    async def _cancel(self) -> None:
+        if self._is_running():
             self._task.cancel()
             try:
                 await self._task
             except asyncio.CancelledError:
                 print("Task cancelled.")
-        self._initialize()
-        self.start()
+        self._task = None
 
     async def _run(self) -> None:
         while True:
-            await asyncio.sleep(self._sleepPeriod)
             self._update()
+            await asyncio.sleep(self._sleep_period)
+
+    def _is_running(self) -> bool:
+        return self._task is not None and not self._task.done()
 
     def _initialize(self) -> None:
         pass
