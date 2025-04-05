@@ -16,6 +16,7 @@ class AsyncTaskInterface:
 
 
 
+
     def start(self) -> None:
         if not self._is_running():
             self._task = asyncio.create_task(self._run())
